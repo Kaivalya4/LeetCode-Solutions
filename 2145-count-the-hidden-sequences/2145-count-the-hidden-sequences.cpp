@@ -10,15 +10,10 @@ public:
             sum += diff[i];
             mins = min(mins , sum);
             maxi = max(maxi , sum);
-        }/*
-        if(maxi > upper)
+        }
+        int ans = (upper - lower) - (maxi - mins) +1 ;
+        if(ans <0)
             return 0;
-        if(mins<lower)
-            return 0;*/
-        maxi = upper  - maxi;
-        mins = lower - mins;
-        if(maxi<mins)
-            return 0;
-        return maxi - mins +1;
+        else return ans;
     }
 };
