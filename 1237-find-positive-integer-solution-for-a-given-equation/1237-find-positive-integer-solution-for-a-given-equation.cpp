@@ -15,11 +15,27 @@ public:
     vector<vector<int>> findSolution(CustomFunction& customfunction, int z) {
         vector<vector<int>> ans;
         for(int i=1;i<=1000;i++){
-            for(int j=1;j<=1000;j++){
-                if(z == customfunction.f(i,j)){
-                    ans.push_back({i,j});
+            int start = 1;
+            int end = 1000;
+            while(start +1 <end){
+                int mid = (start + end)/2;
+                int value = customfunction.f(i,mid);
+                if(value == z){
+                    ans.push_back({i,mid});
+                    break;
+                }
+                else if(value > z){
+                    end = mid -1;
+                }
+                else{
+                    start = mid+1;
                 }
             }
+            if(customfunction.f(i,start) == z){
+                ans.push_back({i,start});
+            }
+            if(customfunction.f(i,end) == z && start != end)
+                ans.push_back({i,end});
         }
         return ans;
     }
