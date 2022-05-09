@@ -4,8 +4,6 @@ public:
         vector<int> q;
         for(int i=0;i<queries.size();i++){
             sort(queries[i].begin(),queries[i].end());
-            for(auto k:queries[i])
-                cout << k ;
             
             int ans = -1;
             for(int j=0;j<queries[i].size()-1;j++){
@@ -20,7 +18,7 @@ public:
             else{
                 ans++;
             }
-            cout << ans << " " ;
+            
             q.push_back(ans);
         }
         vector<int> w;
