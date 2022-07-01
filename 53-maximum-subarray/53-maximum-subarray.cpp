@@ -16,7 +16,14 @@ public:
     }
     int maxSubArray(vector<int>& nums) {
         memset(dp , -1 , sizeof(dp));
+        dp[0][0] = -10000001; 
+        dp[0][1] = 0;
+        int n = nums.size();
+        for(int i=1;i<=n;i++){
+            dp[i][1] = max(0 , nums[i-1] + dp[i-1][1]);
+            dp[i][0] = max(dp[i-1][0] , nums[i-1] + dp[i-1][1]);
+        }
         
-        return solve(0 , false , nums);
+        return dp[n][0];
     }
 };
