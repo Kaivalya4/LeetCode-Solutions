@@ -3,7 +3,7 @@ public:
     
     map<string,int> umap;
     
-    int solve(int idx , string mark , vector<int>&c , int t , vector<int>&sol , vector<vector<int>> &ans){
+    int solve(int idx , string &mark , vector<int>&c , int t , vector<int>&sol , vector<vector<int>> &ans){
         if(umap[mark])
             return umap[mark] ;
         if(t == 0){
