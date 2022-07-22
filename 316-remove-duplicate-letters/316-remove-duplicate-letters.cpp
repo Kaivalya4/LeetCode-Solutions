@@ -1,9 +1,9 @@
 class Solution {
 public:
     string removeDuplicateLetters(string s) {
-        vector<char> q;
-        map<char,int> umap;
-        map<char,bool> present;
+        vector<char> q; ///stack
+        map<char,int> umap;  ///to count the number of each character
+        map<char,bool> present;  //to know wether a character is present in our current ans or not.
         for(auto i:s){
             umap[i]++;
         }
@@ -27,10 +27,6 @@ public:
             else{
                 umap[i] --;
             }
-            for(auto j:q){
-                cout << j << " ";
-            }
-            cout << endl;
         }
         string ans;
         for(auto i:q){
