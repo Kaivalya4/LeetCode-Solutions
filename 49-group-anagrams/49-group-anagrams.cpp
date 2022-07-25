@@ -8,6 +8,7 @@ public:
             sort(s.begin(),s.end());
             umap[s].push_back(strs[i]);
         }
+        vec.reserve(umap.size());
         for(auto &i:umap){
             vec.push_back(move(i.second));
         }
