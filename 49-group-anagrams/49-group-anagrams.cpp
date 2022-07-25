@@ -8,12 +8,8 @@ public:
             sort(s.begin(),s.end());
             umap[s].push_back(strs[i]);
         }
-        for(auto i:umap){
-            vector<string> sol;
-            for(auto j:i.second){
-                sol.push_back(j);
-            }
-            vec.push_back(sol);
+        for(auto &i:umap){
+            vec.push_back(i.second);
         }
         return vec;
     }
