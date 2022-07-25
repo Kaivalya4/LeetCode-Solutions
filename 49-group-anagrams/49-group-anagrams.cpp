@@ -9,7 +9,7 @@ public:
             umap[s].push_back(strs[i]);
         }
         for(auto &i:umap){
-            vec.push_back(i.second);
+            vec.push_back(move(i.second));
         }
         return vec;
     }
