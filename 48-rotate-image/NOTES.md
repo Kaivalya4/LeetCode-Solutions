@@ -13,3 +13,4 @@ cout << '\n';
 Method2 ( moving forward each element)  :  push elements of following position one forward (0,0) -> (1,n) -> (n,n) -> (n,1) -> (0,0) .
 Similarly other elements of outer loops . Then do same for inner loop.
 See first accepted solution.
+Method3 : Transpose and rotate each row ( use pen and paper and then see second accpeted solution)
