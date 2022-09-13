@@ -1,37 +1,41 @@
 class MinStack {
 public:
-    stack<int> stk;
-    stack<int> mins;
+    stack<long long> stk;
+    long long minele ;
     MinStack() {
         
     }
     
     void push(int val) {
-        if(stk.size() == 0){
+        if(stk.empty()){
             stk.push(val);
-            mins.push(val);
-        } else {
-            if(val<=mins.top()){
-                mins.push(val);
-            }
-            stk.push(val);
+            minele = val;
+        } else{
+            if(val<minele){
+                stk.push(2ll*(long long)val -minele);
+                minele = val;
+            } else
+                stk.push(val);
         }
     }
     
     void pop() {
-        int val = stk.top();
-        if(val == mins.top())
-            mins.pop();
+        if( stk.top() <minele){
+            long long val = stk.top();
+            minele = 2ll*minele - val;
+        }
         stk.pop();
-        return ;
     }
     
     int top() {
+        if(stk.top() < minele){
+            return minele;
+        }
         return stk.top();
     }
     
     int getMin() {
-        return mins.top();
+        return minele;
     }
 };
 
